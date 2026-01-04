@@ -1,0 +1,22 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+	ignorecase = true
+	precomposeunicode = true
+[remote "upstream"]
+	url = https://github.com/MLNLP-World/LLMs-from-scratch-CN.git
+	fetch = +refs/heads/main:refs/remotes/upstream/main
+[branch "main"]
+	remote = upstream
+	merge = refs/heads/main
+	vscode-merge-base = origin/main
+[branch "myl/learning_test"]
+	vscode-merge-base = origin/main
+[remote "origin"]
+	url = https://github.com/Mi-YL/frist_git.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[remote "new_origin"]
+	url = https://github.com/Mi-YL/frist_git.git
+	fetch = +refs/heads/*:refs/remotes/new_origin/*
