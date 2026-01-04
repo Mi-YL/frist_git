@@ -34,9 +34,9 @@ int_to_str = {i:s for s,i in vocab.items()}
 # print(int_to_str)
 #遍历 enumerate(all_tokens) 中的每个元组 (integer, token)，以 token 作为键，integer 作为值创建字典条目。
 # print(vocab)
-print(len(vocab.items()))
-for i, item in enumerate(list(vocab.items())[-5:]):#输出后五个内容与其标号
-    print(item)
+#print(len(vocab.items()))
+# for i, item in enumerate(list(vocab.items())[-5:]):#输出后五个内容与其标号
+#     print(item)
 # for i, item in enumerate(vocab.items()):
 #     #print(item)
 #     if i >= 50:
@@ -84,7 +84,7 @@ class SimpleTokenizerV2:##版本2.0,启动!
         ids = [self.str_to_int[s] for s in preprocessed]#单词或标点映射为整数列表
         return ids
         
-        
+
     def decode(self, ids):
         text = " ".join([self.int_to_str[i] for i in ids])
         # Replace spaces before the specified punctuations
@@ -103,3 +103,13 @@ class SimpleTokenizerV2:##版本2.0,启动!
 # tokenizer1 = SimpleTokenizerV1(vocab)  ##用vocab创造一个实例
 # text = "Hello, do you like tea. Is this-- a test?"
 # tokenizer1.encode(text)
+tokenizer = SimpleTokenizerV2(vocab)
+
+text1 = "Hello, do you like tea?"
+text2 = "In the sunlit terraces of the palace."
+text = " <|endoftext|> ".join((text1, text2))#用句子分隔符链接两个句子
+print(text) #跟第一个一样,但不会报错了
+ids = tokenizer.encode(text) #按照这个例子里的encode函数处理text
+print(ids)
+decoded_text = tokenizer.decode(ids)
+print(decoded_text)
