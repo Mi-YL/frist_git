@@ -66,7 +66,7 @@ for batch in dataloader:
     token_embeddings = token_embedding_layer(x)
     pos_embeddings = pos_embedding_layer(torch.arange(max_length))
     input_embeddings = token_embeddings + pos_embeddings
-
+    print(x)
     break
 
 print(input_embeddings.shape)
