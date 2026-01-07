@@ -35,11 +35,10 @@ attn_weights_2_naive = softmax_naive(attn_scores_2)
 
 # print("Attention weights:", attn_weights_2_naive)
 # print("Sum:", attn_weights_2_naive.sum())
+
 ##用SoftMax做归一化, 处理好极端值
 #有合理的梯度数据表现力
-
 attn_weights_2 = torch.softmax(attn_scores_2, dim=0)
-
 # print("Attention weights:", attn_weights_2)
 # print("Sum:", attn_weights_2.sum())
 #用torch优化过的softmax对边缘值也挺友好的
